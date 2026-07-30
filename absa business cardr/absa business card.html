@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yusriah Khan · Absa Business Card</title>
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0f0f0 0%, #d9d9d9 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 1.5rem;
+    }
+
+    .business-card {
+      max-width: 760px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2.2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25),
+                  0 8px 18px rgba(0,0,0,0.08);
+      padding: 2rem 2.2rem 2.2rem 2.2rem;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(200, 200, 200, 0.3);
+      position: relative;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.6rem;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-text {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .qualification {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #e60000;
+      background: #fff0f0;
+      padding: 0.35rem 1.1rem;
+      border-radius: 40px;
+      border: 1px solid #ffd6d6;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qualification i {
+      color: #e60000;
+      font-size: 0.9rem;
+    }
+
+    /* Absa logo container - moved to right */
+    .absa-logo-wrapper {
+      width: 80px;
+      height: 80px;
+      border-radius: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e60000;
+      box-shadow: 0 4px 12px rgba(230, 0, 0, 0.35);
+      border: 2px solid rgba(230, 0, 0, 0.1);
+      overflow: hidden;
+      flex-shrink: 0;
+      padding: 0px;
+    }
+
+    .absa-logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .position {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      letter-spacing: -0.2px;
+      border-left: 4px solid #e60000;
+      padding-left: 0.9rem;
+      background: #fafafa;
+      border-radius: 0 12px 12px 0;
+      padding: 0.4rem 0.9rem;
+      width: fit-content;
+    }
+
+    .position i {
+      color: #e60000 !important;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+      margin-top: 0.8rem;
+      background: #fafafa;
+      padding: 1.2rem 1.5rem;
+      border-radius: 1.5rem;
+      border: 1px solid #f0f0f0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-item i {
+      width: 1.4rem;
+      font-size: 1.1rem;
+      color: #e60000;
+      text-align: center;
+    }
+
+    .contact-item a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 450;
+      word-break: break-word;
+      transition: 0.15s;
+    }
+
+    .contact-item a:hover {
+      color: #e60000;
+      text-decoration: underline;
+    }
+
+    .contact-item .label {
+      font-weight: 300;
+      color: #888888;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-right: 0.15rem;
+    }
+
+    .office-block {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      padding-top: 0.3rem;
+      border-top: 1px dashed #e8e8e8;
+      margin-top: 0.2rem;
+    }
+
+    .office-block i {
+      margin-top: 0.2rem;
+      color: #e60000;
+    }
+
+    .office-address {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #1a1a1a;
+      font-weight: 400;
+    }
+
+    .office-address strong {
+      font-weight: 500;
+      color: #000000;
+    }
+
+    .website-row {
+      margin-top: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: #fafafa;
+      padding: 0.6rem 1.2rem;
+      border-radius: 3rem;
+      border: 1px solid #f0f0f0;
+      width: fit-content;
+    }
+
+    .website-row i {
+      color: #e60000;
+      font-size: 1.1rem;
+    }
+
+    .website-row a {
+      color: #1a1a1a;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: -0.2px;
+    }
+
+    .website-row a:hover {
+      text-decoration: underline;
+      color: #e60000;
+    }
+
+    .website-row .secure-badge {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: #666666;
+      background: #f0f0f0;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .website-row .secure-badge i {
+      font-size: 0.7rem;
+      color: #e60000;
+    }
+
+    .card-footer {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.65rem;
+      color: #888888;
+      letter-spacing: 0.3px;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 1.2rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-tag i {
+      font-size: 0.8rem;
+      color: #e60000;
+    }
+
+    @media (max-width: 600px) {
+      .business-card {
+        padding: 1.5rem 1.2rem;
+      }
+      .name {
+        font-size: 1.8rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 0.4rem 0;
+        padding: 1rem;
+      }
+      .office-block {
+        grid-column: 1;
+      }
+      .profile {
+        gap: 1rem;
+      }
+      .position {
+        font-size: 1rem;
+        padding: 0.3rem 0.8rem;
+      }
+      .card-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand-text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .qualification {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.8rem;
+        white-space: normal;
+      }
+      .website-row {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 0.6rem 0.8rem;
+      }
+      .website-row .secure-badge {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .absa-logo-wrapper {
+        align-self: flex-end;
+      }
+      .brand-text {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="business-card">
+    <div class="card-header">
+      <div class="brand">
+        <div class="brand-text">
+          <span class="name">Yusriah Khan</span>
+          <span class="qualification"><i class="fas fa-graduation-cap"></i> BCom (Econ) (Hons)</span>
+        </div>
+      </div>
+      <!-- Absa logo on far right -->
+      <div class="absa-logo-wrapper">
+        <img 
+          src="absa logo.png" 
+          alt="Absa Logo" 
+        />
+      </div>
+    </div>
+
+    <div class="profile">
+      <div class="position">
+        <i class="fas fa-briefcase" style="margin-right: 10px;"></i> Wealth Banker – Wealth &amp; Investment Management
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <i class="fas fa-mobile-alt"></i>
+          <div>
+            <span class="label">Mobile</span>
+            <a href="tel:+27721606924">+27 72 160 6924</a>
+          </div>
+        </div>
+        <div class="contact-item" style="grid-column: 1 / -1;">
+          <i class="fas fa-envelope"></i>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 0.2rem;">
+            <span class="label">Email</span>
+            <a href="mailto:Yusriah.Khan@absa.africa">Yusriah.Khan@absa.africa</a>
+          </div>
+        </div>
+        <div class="office-block">
+          <i class="fas fa-map-pin" style="font-size: 1.2rem;"></i>
+          <div class="office-address">
+            <strong>Office</strong><br />
+            1st Floor, Bridge Park East, Bridgeway Boulevard,<br />
+            Century City, Cape Town, 7441
+          </div>
+        </div>
+      </div>
+
+      <div class="website-row">
+        <i class="fas fa-globe-africa"></i>
+        <a href="https://www.absa.co.za" target="_blank" rel="noopener noreferrer">
+          https://www.absa.co.za
+        </a>
+        <span class="secure-badge">
+          <i class="fas fa-shield-alt"></i> secure
+        </span>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <span class="footer-tag">
+        <i class="fas fa-regular fa-address-card"></i> Wealth &amp; Investment
+      </span>
+      <span class="footer-tag">
+        <i class="fas fa-regular fa-building"></i> Absa · Century City
+      </span>
+      <span style="color: #888888;">
+        <i class="fas fa-regular fa-clock" style="margin-right: 4px; color: #e60000;"></i> Mon–Fri
+      </span>
+    </div>
+  </div>
+</body>
+</html>
